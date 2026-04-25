@@ -649,6 +649,12 @@ body {
   font-weight: 500;
 }
 
+.slot-timezone {
+  font-size: 10px;
+  opacity: 0.6;
+  margin-top: 2px;
+}
+
 @media (max-width: 480px) {
   .slot {
     padding: 10px 6px;
