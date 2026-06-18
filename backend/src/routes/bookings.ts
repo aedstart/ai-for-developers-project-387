@@ -27,6 +27,9 @@ function toWallClockDateString(date: Date): string {
   );
 }
 
+// Business timezone offset (Moscow UTC+3)
+const BUSINESS_TIMEZONE = '+03:00';
+
 // Parse a "YYYY-MM-DD" or "YYYY-MM-DDTHH:MM:SS" string as UTC (treat the wall-clock time as UTC).
 // This ensures 09:00 stays 09:00 regardless of server timezone.
 function parseWallClockDateTime(str: string): Date {
@@ -98,6 +101,7 @@ router.get('/slots', async (req, res) => {
       startTime: string;
       endTime: string;
       available: boolean;
+      timezone: string;
     }> = [];
 
     for (const day of availableDays) {
@@ -139,6 +143,7 @@ router.get('/slots', async (req, res) => {
           startTime: toWallClockDateTimeString(currentSlot),
           endTime: toWallClockDateTimeString(slotEnd),
           available: !hasConflict && !isInPast,
+          timezone: BUSINESS_TIMEZONE,
         });
 
         currentSlot = slotEnd;

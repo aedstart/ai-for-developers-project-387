@@ -39,6 +39,7 @@ export interface Slot {
   startTime: string;
   endTime: string;
   available: boolean;
+  timezone: string;
 }
 
 export interface Booking {

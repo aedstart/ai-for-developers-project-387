@@ -291,6 +291,7 @@ export default function UserPage() {
                   onClick={() => handleSlotClick(slot)}
                 >
                   <div className="slot-time">{slot.time}</div>
+                  <div className="slot-timezone">{slot.timezone}</div>
                 </div>
               ))}
             </div>
@@ -307,7 +308,7 @@ export default function UserPage() {
             
             <div className="info-block">
               <p><strong>Дата:</strong> {selectedSlot.date.split('-').reverse().join('.')}</p>
-              <p><strong>Время:</strong> {selectedSlot.time}</p>
+              <p><strong>Время:</strong> {selectedSlot.time} ({selectedSlot.timezone})</p>
               <p><strong>Длительность:</strong> {eventTypes.find(t => t.id === selectedEventType)?.duration} мин</p>
             </div>
             
